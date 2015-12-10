@@ -1,7 +1,8 @@
 /*!
  * ui-select
- * http://github.com/angular-ui/ui-select
- * Version: 0.13.2 - 2015-10-09T15:34:24.045Z
+ * https://github.com/cunninghamzac/ui-select
+ * This is a fork of https://github.com/angular-ui/ui-select that fixes some minor issues with the original control.
+  * Version: 0.13.2 - 2015-12-10T23:21:28.787Z
  * License: MIT
  */
 
@@ -28,6 +29,10 @@
 
 .ui-select-choices-row:hover {
   background-color: #f5f5f5;
+}
+
+.ui-select-choices-row{
+    cursor: pointer;
 }
 
 /* Select2 theme */

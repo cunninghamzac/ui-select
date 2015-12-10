@@ -2,9 +2,10 @@
   "name": "ui-select",
   "main": "dist/select.js",
   "author": "http://github.com/angular-ui/ui-select/graphs/contributors",
-  "homepage": "http://github.com/angular-ui/ui-select",
+  "homepage": "https://github.com/cunninghamzac/ui-select",
+  "notes": "This is a fork of https://github.com/angular-ui/ui-select that fixes some minor issues with the original control.",
   "repository": {
-    "url": "git://github.com/angular-ui/ui-select.git"
+    "url": "git://github.com/cunninghamzac/ui-select.git"
   },
   "version": "0.13.2",
   "devDependencies": {

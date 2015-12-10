@@ -45,7 +45,7 @@ uis.controller('uiSelectCtrl',
   if (ctrl.searchInput.length !== 1) {
     throw uiSelectMinErr('searchInput', "Expected 1 input.ui-select-search but got '{0}'.", ctrl.searchInput.length);
   }
-  
+
   ctrl.isEmpty = function() {
     return angular.isUndefined(ctrl.selected) || ctrl.selected === null || ctrl.selected === '';
   };
@@ -149,7 +149,7 @@ uis.controller('uiSelectCtrl',
     //If collection is an Object, convert it to Array
 
     var originalSource = ctrl.parserResult.source;
-    
+
     //When an object is used as source, we better create an array and use it as 'source'
     var createArrayFromObject = function(){
       var origSrc = originalSource($scope);
@@ -195,7 +195,7 @@ uis.controller('uiSelectCtrl',
         ctrl.items = [];
       } else {
         if (!angular.isArray(items)) {
-          throw uiSelectMinErr('items', "Expected an array but got '{0}'.", items);          
+          throw uiSelectMinErr('items', "Expected an array but got '{0}'.", items);
         } else {
           //Remove already selected items (ex: while searching)
           //TODO Should add a test
@@ -445,11 +445,6 @@ uis.controller('uiSelectCtrl',
 
     var key = e.which;
 
-    // if(~[KEY.ESC,KEY.TAB].indexOf(key)){
-    //   //TODO: SEGURO?
-    //   ctrl.close();
-    // }
-
     $scope.$apply(function() {
 
       var tagged = false;
@@ -478,17 +473,22 @@ uis.controller('uiSelectCtrl',
         }
       }
 
+      if (key === KEY.TAB && ctrl.open && ctrl.items.length === 0){
+         //close the dropdown if the user has typed something in,
+         //but it doesn't match anything. Skip focusing so that focus goes to the next focusable element.
+         ctrl.close(true);
+      }
+
     });
 
     if(KEY.isVerticalMovement(key) && ctrl.items.length > 0){
       _ensureHighlightVisible();
     }
 
-    if (key === KEY.ENTER || key === KEY.ESC) {
+    if (key === KEY.ENTER || key === KEY.ESC || key === KEY.UP) {
       e.preventDefault();
       e.stopPropagation();
     }
-
   });
 
   // If tagging try to split by tokens and add items

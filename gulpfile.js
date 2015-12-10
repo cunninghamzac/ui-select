@@ -21,6 +21,7 @@ var config = {
       '/*!\n' +
       ' * <%= pkg.name %>\n' +
       ' * <%= pkg.homepage %>\n' +
+      ' * <%= pkg.notes %>\n ' +
       ' * Version: <%= pkg.version %> - <%= timestamp %>\n' +
       ' * License: <%= pkg.license %>\n' +
       ' */\n\n\n'
